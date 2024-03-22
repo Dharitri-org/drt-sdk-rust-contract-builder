@@ -9,6 +9,7 @@ ARG VERSION_WABT="1.0.27-1"
 ARG VERSION_SC_META="0.12.0"
 ARG TARGETPLATFORM
 
+
 # Install system dependencies
 RUN apt-get update --fix-missing && apt-get install -y \
     wget \
@@ -42,6 +43,7 @@ RUN PATH="/rust/bin:${PATH}" CARGO_HOME=/rust RUSTUP_HOME=/rust cargo install dh
 
 COPY "dharitri_sdk_rust_contract_builder" "/dharitri_sdk_rust_contract_builder"
 
+ENV PKG_CONFIG=/usr/bin/pkg-config
 ENV PATH="/rust/bin:/binaryen:${PATH}"
 ENV CARGO_HOME="/rust"
 ENV RUSTUP_HOME="/rust"
