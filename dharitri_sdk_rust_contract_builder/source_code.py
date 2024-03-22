@@ -50,7 +50,7 @@ def get_source_code_files(
     files_related_to_contract = set(file.path for file in source_code_files)
 
     if include_unrelated_to_contract:
-        all_files = get_all_files(project_folder, _is_source_code_file)
+        all_files = get_all_files(contract_folder, _is_source_code_file)
         for file in all_files:
             if file not in files_related_to_contract:
                 source_code_files.append(SourceCodeFile(file, contract_folder, sys.maxsize))
@@ -61,7 +61,9 @@ def get_source_code_files(
 def _is_source_code_file(path: Path) -> bool:
     if path.suffix == ".rs":
         return True
-    if path.name in ["Cargo.toml", "Cargo.lock", "multicontract.toml", "sc-config.toml", CONTRACT_CONFIG_FILENAME]:
+    if path.parent.name == "meta" and path.name == "Cargo.lock":
+        return False
+    if path.name in ["Cargo.toml", "Cargo.lock", "multicontract.toml", CONTRACT_CONFIG_FILENAME]:
         return True
     return False
 
