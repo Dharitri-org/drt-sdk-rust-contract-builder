@@ -1,4 +1,4 @@
-# mx-sdk-rust-contract-builder
+# drt-sdk-rust-contract-builder
 
 Docker image (and wrappers) for reproducible contract builds (Rust). See [docs.dharitri.com](https://docs.dharitri.com/developers/reproducible-contract-builds/).
 

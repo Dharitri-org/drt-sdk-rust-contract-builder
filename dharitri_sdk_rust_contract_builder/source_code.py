@@ -61,9 +61,7 @@ def get_source_code_files(
 def _is_source_code_file(path: Path) -> bool:
     if path.suffix == ".rs":
         return True
-    if path.parent.name == "meta" and path.name == "Cargo.lock":
-        return False
-    if path.name in ["Cargo.toml", "Cargo.lock", "multicontract.toml", CONTRACT_CONFIG_FILENAME]:
+    if path.name in ["Cargo.toml", "Cargo.lock", "multicontract.toml", "sc-config.toml", CONTRACT_CONFIG_FILENAME]:
         return True
     return False
 
