@@ -2,6 +2,7 @@
 from typing import Dict, List, Optional
 
 
+
 class PreviousBuild:
     def __init__(self, name: str,
                  project_archive_url: Optional[str],
@@ -22,58 +23,60 @@ class PreviousBuild:
 previous_builds: List[PreviousBuild] = [
     PreviousBuild(
         name="a.1",
-        project_archive_url="https://github.com/Dharitri-org/mx-reproducible-contract-build-example-sc/archive/refs/tags/v0.4.0.zip",
-        project_relative_path_in_archive="mx-reproducible-contract-build-example-sc-0.4.0",
+        project_archive_url="https://github.com/Dharitri-org/drt-exchange-sc/archive/refs/tags/v0.0.2.zip",
+        project_relative_path_in_archive="drt-exchange-sc-v0.0.2",
         packaged_src_url=None,
         contract_name=None,
         expected_code_hashes={
-            "adder": "9fd12f88f9474ba115fb75e9d18a8fdbc4f42147de005445048442d49c3aa725",
-            "multisig": "2101bc2a7a31ea42e5ffaadd86c1640009690e93b1cb46c3566ba5eac2984e36",
-            "multisig-full": "ef468403354b6d3a728f86101354359fe6864187d216f674d99b31fc05313a39",
-            "multisig-view": "3690af76be10c0520e3c3545cde8d9ef6a15c2d0af74dbd8704b4909644049c9"
+            "farm-staking": "6dc7c587b2cc4b177a192b709c092f3752b3dcf9ce1b484e69fe64dc333a9e0a",
+            "farm": "931ca233826ff9dacd889967365db1cde9ed8402eb553de2a3b9d58b6ff1098d",
+            "factory": "df06465b651594605466e817bfe9d8d7c68eef0f87df4a8d3266bcfb1bef6d83",
+            "pair": "f3f08ebd758fada871c113c18017d9761f157d00b19c4d3beaba530e6c53afc2",
+            "energy-factory": "241600c055df605cafd85b75d40b21316a6b35713485201b156d695b23c66a2f"
         },
-        docker_image="dharitriorg/sdk-rust-contract-builder:v5.1.0"
+        docker_image="dharitriorg/sdk-rust-contract-builder:next"
     ),
     PreviousBuild(
         name="a.2",
-        project_archive_url="https://github.com/Dharitri-org/mx-reproducible-contract-build-example-sc/archive/refs/tags/v0.4.3.zip",
-        project_relative_path_in_archive="mx-reproducible-contract-build-example-sc-0.4.3",
+        project_archive_url="https://github.com/Dharitri-org/drt-metabonding-sc/archive/refs/tags/v1.1.1.zip",
+        project_relative_path_in_archive="drt-metabonding-sc-v1.1.1",
         packaged_src_url=None,
         contract_name=None,
         expected_code_hashes={
-            "adder": "9fd12f88f9474ba115fb75e9d18a8fdbc4f42147de005445048442d49c3aa725",
-            "multisig": "b73050629c11b1f1a20ca6232abcef07897624195691552e3f2e2fce47822166",
-            "multisig-full": "37c3b90bdaa7d8d203385c91b0b5cb4d3c444ab9ec5263351978046a545854e3",
-            "multisig-view": "ebaf987b041fcda297da71291d76736e4e98a1e449e5ec37908cdc0198e8be37"
+            "metabonding": "897b19e1990f7c487c99c12f50722febe1ee4468bcd3a7405641966dfff2791d"
         },
-        docker_image="dharitriorg/sdk-rust-contract-builder:v5.3.0"
+        docker_image="dharitriorg/sdk-rust-contract-builder:next"
     ),
     PreviousBuild(
         name="a.3",
-        project_archive_url="https://github.com/Dharitri-org/mx-exchange-sc/archive/refs/heads/reproducible-v2.4.1-pair-safe-price-v2.zip",
-        project_relative_path_in_archive="mx-exchange-sc-reproducible-v2.4.1-pair-safe-price-v2",
+        project_archive_url="https://github.com/Dharitri-org/drt-contract-rs/archive/refs/tags/v0.0.1.zip",
+        project_relative_path_in_archive="drt-contract-rs-0.0.1",
         packaged_src_url=None,
         contract_name=None,
         expected_code_hashes={
-            "pair": "e9f117971963cb3c24b14e2a7698d48c170335af2f5c8167774c48c3c1c654e3",
-            "pair-full": "f1af2b2bb42a9f035745777e4b2d4f72478569224f204d0d0103801faff9663a",
-            "safe-price-view": "b5a657445ae74423c60210c88a6fa89b0bd4bdd00d5f06e788e14495bccc34c9"
+            "adder": "384b680df7a95ebceca02ffb3e760a2fc288dea1b802685ef15df22ae88ba15b",
+            "multisig": "5a8ed9e5b9ad81ffa4109262f5482e8ebc10dba339e61e992b5a7501f8e22bd5",
+            "multisig-full": "88e1a67b630cd8efdee8ce6254322f4d7dda6c723a5c33e5a1e890ff9713e290",
+            "multisig-view": "bfdc84983ab9615e7859da9f3815b6189dd315437ade767f87615ca9ba625397",
+            "lottery-dct": "d90f13fcc50108de89b629ca6bfdd7ba378c172a19488c56a97ab571cb6160e2"
+  
         },
-        docker_image="sdk-rust-contract-builder:next"
+        docker_image="dharitriorg/sdk-rust-contract-builder:next"
     ),
     PreviousBuild(
         name="a.4",
-        project_archive_url="https://github.com/Dharitri-org/mx-exchange-sc/archive/refs/heads/reproducible-v2.5.2-governance-merkle-tree.zip",
-        project_relative_path_in_archive="mx-exchange-sc-reproducible-v2.5.2-governance-merkle-tree",
+        project_archive_url="https://github.com/Dharitri-org/drt-contract-rs/archive/refs/tags/v0.0.1.zip",
+        project_relative_path_in_archive="drt-contract-rs-0.0.1",
         packaged_src_url=None,
         contract_name=None,
         expected_code_hashes={
-            "lkmex-transfer": "49809df9f07839f965f8197721083cf403c3db969ddc47b5940b4ee8b464af92",
-            "router": "3257d57945736298c96aa23f99ea0fba3b6da01f9d2103d81230d05cff62cb5a",
-            "pair": "e9f117971963cb3c24b14e2a7698d48c170335af2f5c8167774c48c3c1c654e3",
-            "locked-token-wrapper": "1d317cfa2bbe22ea1f878f8a32f90712d49f68a01665b86657d36910b430522f",
-            "safe-price-view": "b5a657445ae74423c60210c88a6fa89b0bd4bdd00d5f06e788e14495bccc34c9"
+            "adder": "384b680df7a95ebceca02ffb3e760a2fc288dea1b802685ef15df22ae88ba15b",
+            "multisig": "5a8ed9e5b9ad81ffa4109262f5482e8ebc10dba339e61e992b5a7501f8e22bd5",
+            "multisig-full": "f6b5457682b39ea1bd52fd6fe293257a3d5a5bb931c9e404c9ba24617cd51438",
+            "multisig-view": "88e1a67b630cd8efdee8ce6254322f4d7dda6c723a5c33e5a1e890ff9713e290",
+            "lottery-dct": "bfdc84983ab9615e7859da9f3815b6189dd315437ade767f87615ca9ba625397",
+            "ping-pong-moax": "d90f13fcc50108de89b629ca6bfdd7ba378c172a19488c56a97ab571cb6160e2"
         },
         docker_image="sdk-rust-contract-builder:next"
-    )
+    ),
 ]

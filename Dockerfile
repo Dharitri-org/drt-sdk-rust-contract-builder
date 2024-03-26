@@ -1,12 +1,12 @@
 FROM ubuntu:22.04
 
 # Constants
-ARG BUILDER_NAME="dharitrorg/sdk-rust-contract-builder:v0.0.3"
-ARG VERSION_RUST="nightly-2023-12-28"
-ARG VERSION_BINARYEN="version_105"
+ARG BUILDER_NAME="Dharitri-org/sdk-rust-contract-builder:v0.0.1"
+ARG VERSION_RUST="nightly-2023-12-11"
+ARG VERSION_BINARYEN="version_112"
 ARG DOWNLOAD_URL_BINARYEN="https://github.com/WebAssembly/binaryen/releases/download/${VERSION_BINARYEN}/binaryen-${VERSION_BINARYEN}-x86_64-linux.tar.gz"
 ARG VERSION_WABT="1.0.27-1"
-ARG VERSION_SC_META="0.11.4"
+ARG VERSION_SC_META="0.12.8"
 ARG TARGETPLATFORM
 
 # Install system dependencies
@@ -39,9 +39,8 @@ RUN wget -O rustup.sh https://sh.rustup.rs && \
     rm -rf /rust/registry
 
 # Install sc-tool
-RUN PATH="/rust/bin:${PATH}" CARGO_HOME=/rust RUSTUP_HOME=/rust cargo install dharitri-sc-meta --locked --version ${VERSION_SC_META} && \
-    rm -rf /rust/registry
-
+RUN PATH="/rust/bin:${PATH}" CARGO_HOME=/rust RUSTUP_HOME=/rust cargo install dharitri-sc-meta --version ${VERSION_SC_META} --locked && \
+    rm -rf /rust/registry 
 COPY "dharitri_sdk_rust_contract_builder" "/dharitri_sdk_rust_contract_builder"
 
 ENV PATH="/rust/bin:/binaryen:${PATH}"
