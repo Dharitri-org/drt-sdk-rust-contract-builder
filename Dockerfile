@@ -40,6 +40,9 @@ RUN wget -O rustup.sh https://sh.rustup.rs && \
 RUN PATH="/rust/bin:${PATH}" CARGO_HOME=/rust RUSTUP_HOME=/rust cargo install dharitri-sc-meta --version ${VERSION_SC_META} && \
     rm -rf /rust/registry
 
+# Set permissions for /rust directory
+RUN chmod -R 777 /rust
+
 COPY "dharitri_sdk_rust_contract_builder" "/dharitri_sdk_rust_contract_builder"
 
 ENV PATH="/rust/bin:/binaryen:${PATH}"
