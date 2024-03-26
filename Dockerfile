@@ -2,13 +2,12 @@ FROM ubuntu:22.04
 
 # Constants
 ARG BUILDER_NAME="dharitriorg/sdk-rust-contract-builder:v0.0.2"
-ARG VERSION_RUST="nightly-2023-11-16"
+ARG VERSION_RUST="nightly-2023-12-28"
 ARG VERSION_BINARYEN="version_112"
 ARG DOWNLOAD_URL_BINARYEN="https://github.com/WebAssembly/binaryen/releases/download/${VERSION_BINARYEN}/binaryen-${VERSION_BINARYEN}-x86_64-linux.tar.gz"
 ARG VERSION_WABT="1.0.27-1"
 ARG VERSION_SC_META="0.12.0"
 ARG TARGETPLATFORM
-
 
 # Install system dependencies
 RUN apt-get update --fix-missing && apt-get install -y \
@@ -43,7 +42,6 @@ RUN PATH="/rust/bin:${PATH}" CARGO_HOME=/rust RUSTUP_HOME=/rust cargo install dh
 
 COPY "dharitri_sdk_rust_contract_builder" "/dharitri_sdk_rust_contract_builder"
 
-ENV PKG_CONFIG=/usr/bin/pkg-config
 ENV PATH="/rust/bin:/binaryen:${PATH}"
 ENV CARGO_HOME="/rust"
 ENV RUSTUP_HOME="/rust"
