@@ -2,7 +2,7 @@ FROM ubuntu:22.04
 
 # Constants
 ARG BUILDER_NAME="dharitriorg/sdk-rust-contract-builder:v0.0.2"
-ARG VERSION_RUST="nightly-2023-11-16"
+ARG VERSION_RUST="nightly-2023-12-28"
 ARG VERSION_BINARYEN="version_112"
 ARG DOWNLOAD_URL_BINARYEN="https://github.com/WebAssembly/binaryen/releases/download/${VERSION_BINARYEN}/binaryen-${VERSION_BINARYEN}-x86_64-linux.tar.gz"
 ARG VERSION_WABT="1.0.27-1"
