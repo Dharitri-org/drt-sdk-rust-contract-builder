@@ -22,8 +22,7 @@ RUN wget -O binaryen.tar.gz ${DOWNLOAD_URL_BINARYEN} && \
     tar -xf binaryen.tar.gz && \
     mkdir -p /binaryen && \
     cp binaryen-${VERSION_BINARYEN}/bin/wasm-opt /binaryen && \
-    rm -rf binaryen.tar.gz binaryen-${VERSION_BINARYEN} && \
-    chmod -R 777 /binaryen
+    rm -rf binaryen.tar.gz binaryen-${VERSION_BINARYEN}
 
 # Install Python dependencies
 RUN pip3 install toml==0.10.2 semver==3.0.0-dev.4
@@ -33,17 +32,17 @@ RUN wget -O rustup.sh https://sh.rustup.rs && \
     chmod +x rustup.sh && \
     CARGO_HOME=/rust RUSTUP_HOME=/rust ./rustup.sh --verbose --default-toolchain ${VERSION_RUST} --profile minimal --target wasm32-unknown-unknown -y && \
     rm rustup.sh && \
-    chmod -R 777 /rust && \
     rm -rf /rust/registry
 
 # Install sc-tool
 RUN PATH="/rust/bin:${PATH}" CARGO_HOME=/rust RUSTUP_HOME=/rust cargo install dharitri-sc-meta --version ${VERSION_SC_META} && \
     rm -rf /rust/registry
 
-# Set permissions for /rust directory
-RUN chmod -R 777 /rust
-
 COPY "dharitri_sdk_rust_contract_builder" "/dharitri_sdk_rust_contract_builder"
+
+# Set permissions for necessary directories
+RUN mkdir -p /rust/registry/cache && \
+    chmod -R 777 /rust
 
 ENV PATH="/rust/bin:/binaryen:${PATH}"
 ENV CARGO_HOME="/rust"
